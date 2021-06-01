@@ -1,0 +1,27 @@
+sudo: false
+language: ruby
+env:
+ global:
+  - GH_REF: git@github.com:coinwapi/docs.git
+  - secure: Jygmenqi6xM/jsoZ21xbm2BzCDw2hOi4WBy9xQtsbrAD8VsksHBvs4r+McsJFjlBAQ3pIQRZFfg6aBf1WuEynyIPd0LUqd7PFUMaUDxbb+3fJ900Lry6FP/YbaxGTTi4Zx6aoWojFVmGPW+FmKqJLz6WoKdzKPXJoURPwKGli8NaO2D3l6pN8IkVuExewRH5ACnxoBzXc1UBNt7iNlMMZw4JMBYzVpmH/YA5YGEaZ2/TDOH3U5P/gKS/IE3sDxBVjy2tyKVHzZCFzY8DbJiLIQiBFAhhFtMD94ibCtghKsDq7ROMNTAyQFBlOVNdpMYHIyY6f8bglt3L+Ka3ZGp5MikOpce1VTEK5Y1DIE8370odiSx2Y3Z7Cj6aR/jTG3XPTxERhYCOh7JbA6RK2VPL+Q/7SaWCSTR0Jkw0fncgGqy8juWj3/20PCA0669p0FQm/k9oNa00sKNk7/onJxgPrabfmRyDwmW205e1W/ccFVstfYxINnuN2wRcZPk35sJEBOH5rbFeFFktCLXCI6udy1H9+CsSob7o9oC0MbekBolTCdyUWhwaXKoHqRsdBwvBTV1IMgBjEO6pPw3r+A/7986cZDfWUER1xIYfuVwsEycssexRdtAKNhK2m7BlxGigSA00mSfYTuGWYWt2ebOtxEutcZJWMPdwaRTv6rEcox0=
+
+#env:
+#  global:
+#    secure: Jygmenqi6xM/jsoZ21xbm2BzCDw2hOi4WBy9xQtsbrAD8VsksHBvs4r+McsJFjlBAQ3pIQRZFfg6aBf1WuEynyIPd0LUqd7PFUMaUDxbb+3fJ900Lry6FP/YbaxGTTi4Zx6aoWojFVmGPW+FmKqJLz6WoKdzKPXJoURPwKGli8NaO2D3l6pN8IkVuExewRH5ACnxoBzXc1UBNt7iNlMMZw4JMBYzVpmH/YA5YGEaZ2/TDOH3U5P/gKS/IE3sDxBVjy2tyKVHzZCFzY8DbJiLIQiBFAhhFtMD94ibCtghKsDq7ROMNTAyQFBlOVNdpMYHIyY6f8bglt3L+Ka3ZGp5MikOpce1VTEK5Y1DIE8370odiSx2Y3Z7Cj6aR/jTG3XPTxERhYCOh7JbA6RK2VPL+Q/7SaWCSTR0Jkw0fncgGqy8juWj3/20PCA0669p0FQm/k9oNa00sKNk7/onJxgPrabfmRyDwmW205e1W/ccFVstfYxINnuN2wRcZPk35sJEBOH5rbFeFFktCLXCI6udy1H9+CsSob7o9oC0MbekBolTCdyUWhwaXKoHqRsdBwvBTV1IMgBjEO6pPw3r+A/7986cZDfWUER1xIYfuVwsEycssexRdtAKNhK2m7BlxGigSA00mSfYTuGWYWt2ebOtxEutcZJWMPdwaRTv6rEcox0=
+
+branches:
+ only:
+  - master
+cache: bundler
+before_script:
+  - git config --global user.name "crystal"
+  - git config --global user.email "crystal@legenddigital.cn"
+  - git clone https://${GH_TOKEN}@${GH_REF} -b gh-pages --depth=1 build
+script:
+  - bundle exec middleman build --clean
+
+after_script:
+ - cd ./build
+ - git add .
+ - git commit -m "update page automatically"
+ - git push
