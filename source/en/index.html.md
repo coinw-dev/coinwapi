@@ -12,9 +12,9 @@ language: English
 
 other_language: 简体中文
 
-url: /cn
+url: docs/cn
 
-present_url: /en
+present_url: docs/en
 
 active: active
 
