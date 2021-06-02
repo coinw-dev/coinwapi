@@ -1,0 +1,2033 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Exchange-official-API-docs</title>
+    <link href="/images/favicon.ico" rel="icon" type="image/ico">
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../stylesheets/screen-bfe8b719.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print-62a209d5.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all-1decc47a.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="en en_index" data-languages="[]">
+    <div class="header">
+      <img src="../images/logo-386943d7.png" class="logo" alt="" />
+      <div class="tabs">
+        <ul>
+          <li class="active">Exchange</li>
+        </ul>
+      </div>
+      <div class="lang">
+        <span>English</span>
+        <img src="../images/down-c11a96e5.png" class="down" alt="" />
+        <ul class="lang-list">
+         <li class="active">
+            <a href="/en">
+              English
+            </a>
+         </li>
+         <li class="">
+            <a href="/cn">
+              简体中文
+            </a>
+         </li>
+        </ul>
+      </div>
+    </div>
+    <a href="#" id="nav-button">
+      <span>
+        <img src="../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api-introduction" class="toc-h2 toc-link" data-title="API Introduction"><span>API Introduction</span></a>
+                  </li>
+                  <li>
+                    <a href="#description" class="toc-h2 toc-link" data-title="Description"><span>Description</span></a>
+                  </li>
+                  <li>
+                    <a href="#contact-us" class="toc-h2 toc-link" data-title="Contact Us"><span>Contact Us</span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#basic-api" class="toc-h1 toc-link" data-title="Basic API">Basic API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-trading-pair-summary-information" class="toc-h2 toc-link" data-title="Get trading pair summary information"><span>Get trading pair summary information</span></a>
+                  </li>
+                  <li>
+                    <a href="#currency-information" class="toc-h2 toc-link" data-title="Currency information"><span>Currency information</span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#market-api" class="toc-h1 toc-link" data-title="Market API">Market API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-depth" class="toc-h2 toc-link" data-title="Get depth"><span>Get depth</span></a>
+                  </li>
+                  <li>
+                    <a href="#latest-trading-pair" class="toc-h2 toc-link" data-title="Latest trading pair"><span>Latest trading pair</span></a>
+                  </li>
+                  <li>
+                    <a href="#k-line-data" class="toc-h2 toc-link" data-title="K-line data"><span>K-line data</span></a>
+                  </li>
+                  <li>
+                    <a href="#hot-currency-volume" class="toc-h2 toc-link" data-title="Hot currency volume"><span>Hot currency volume</span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#trade-api" class="toc-h1 toc-link" data-title="Trade API">Trade API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#pending-order-list" class="toc-h2 toc-link" data-title="Pending order list"><span>Pending order list</span></a>
+                  </li>
+                  <li>
+                    <a href="#order-details" class="toc-h2 toc-link" data-title="Order details"><span>Order details</span></a>
+                  </li>
+                  <li>
+                    <a href="#order-status" class="toc-h2 toc-link" data-title="Order status"><span>Order status</span></a>
+                  </li>
+                  <li>
+                    <a href="#history-order" class="toc-h2 toc-link" data-title=" History order "><span> History order </span></a>
+                  </li>
+                  <li>
+                    <a href="#order" class="toc-h2 toc-link" data-title=" Order "><span> Order </span></a>
+                  </li>
+                  <li>
+                    <a href="#cancel-order" class="toc-h2 toc-link" data-title=" Cancel order "><span> Cancel order </span></a>
+                  </li>
+                  <li>
+                    <a href="#cancel-all-order" class="toc-h2 toc-link" data-title="Cancel all order "><span>Cancel all order </span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#withdraw-api" class="toc-h1 toc-link" data-title="Withdraw API">Withdraw API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#available-balance" class="toc-h2 toc-link" data-title="Available balance "><span>Available balance </span></a>
+                  </li>
+                  <li>
+                    <a href="#all-balance" class="toc-h2 toc-link" data-title="All balance "><span>All balance </span></a>
+                  </li>
+                  <li>
+                    <a href="#d-amp-w-history" class="toc-h2 toc-link" data-title=" D&amp;w history "><span> D&amp;w history </span></a>
+                  </li>
+                  <li>
+                    <a href="#withdraw" class="toc-h2 toc-link" data-title=" Withdraw "><span> Withdraw </span></a>
+                  </li>
+                  <li>
+                    <a href="#cancel-withdrawal" class="toc-h2 toc-link" data-title=" Cancel withdrawal "><span> Cancel withdrawal </span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#real-time-quotes" class="toc-h1 toc-link" data-title="Real-time quotes">Real-time quotes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#websocket-market-data" class="toc-h2 toc-link" data-title=" Websocket market data "><span> Websocket market data </span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#error-code" class="toc-h1 toc-link" data-title="Error code">Error code</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1><h2 id='api-introduction'><span>API Introduction</span></h2>
+<p>Welcome to CoinW API！</p>
+
+<p>This is the official CoinW API document, and will be continue updating, please follow us to get latest news.</p>
+
+<p>You can switch to different API business in the top menu, and switch to different language by clicking the button in the top right.</p>
+
+<p>The example of request and response is showing in the right hand side.</p>
+<h2 id='description'><span>Description</span></h2>
+<p>1.Get API authenticated api key and secret key</p>
+
+<p>You canget api key and secret key by applying for API, and api key is the access key provided to API users, secret key is used to sign the request parameters. Warning: These two keys are important to your account safety, please don&#39;t share both of them together to anyone else.</p>
+
+<p>2.Generate to be signed string</p>
+
+<p>All parameters submitted by the user, except sign, must participate in the signature. The string to be signed needs to be sorted according to the parameter name (all parameter names are arranged in abcd order according to their first letters firstly, and if the same first letter is encountered, then the second letter, and so on.) For example: For the following The parameters are signed string [] parameters = {&quot;api_key = c821db84-6fbd-11e4-a9e3-c86000d26d7c&quot;, &quot;symbol = btc_cny&quot; type = 0 &quot;price = 680&quot; amount = 1.0 &quot;}; The string to be signed is: amount = 1.0 &amp; api_key = c821db84-6fbd-11e4-a9e3-c86000d26d7c &amp; price = 680 &amp; symbol = btc_cny &amp; type = 0</p>
+
+<p>3.MD5 Signature</p>
+
+<p>When signing MD5, the secret key is required to participate in the signature. Add the secret key parameter to the signature string to generate the final signature string, for example: amount = 1.0 &amp; api_key = c821db84-6fbd-11e4-a9e3-c86000d26d7c &amp; price = 680 &amp; symbol = btc_cny &amp; type = 0 &amp; secret_key = secretKey Note that &quot;&amp; secret_key = secretKey&quot; is signature required parameter. A 32-bit MD5 algorithm is used to perform a signature operation on the final signature string to be signed to obtain a signature result string (the string is assigned to the parameter sign). All letters in the MD5 calculation result are capitalized.</p>
+<h2 id='contact-us'><span>Contact Us</span></h2>
+<p>If you have any other questions on API, you can contact us by below ways:</p>
+
+<p>·Join official QQ group (967798979), please tell your UID and programming language in your join request.</p>
+<h1 id='basic-api'>Basic API</h1><h2 id='get-trading-pair-summary-information'><span>Get trading pair summary information</span></h2>
+<p>Get the basic information of the trading market of CoinW. </p>
+
+<p>The symbol parameters used by other API interfaces are obtained from here, so before using other APIs, please obtain the necessary information through this API.</p>
+
+<p>Retrieve summary information for each currency pair listed on the exchange</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>GET /api/v1/public?command=returnTicker</p>
+</blockquote>
+
+<p><code>curl &quot;http://api.coinw.fm/api/v1/public?command=returnTicker&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<p>No parameter is needed for this endpoint.</p>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>id</td>
+</tr>
+<tr>
+<td>last</td>
+<td>string</td>
+<td>Latest price</td>
+</tr>
+<tr>
+<td>lowestAsk</td>
+<td>string</td>
+<td>Lowest sale</td>
+</tr>
+<tr>
+<td>highestBid</td>
+<td>string</td>
+<td>Highest buy</td>
+</tr>
+<tr>
+<td>percentChange</td>
+<td>string</td>
+<td>Change</td>
+</tr>
+<tr>
+<td>isFrozen</td>
+<td>string</td>
+<td>Lock or not</td>
+</tr>
+<tr>
+<td>high24hr</td>
+<td>string</td>
+<td>High 24H</td>
+</tr>
+<tr>
+<td>low24hr</td>
+<td>string</td>
+<td>Low price</td>
+</tr>
+<tr>
+<td>baseVolume</td>
+<td>string</td>
+<td>Base currency volume 24H</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"EET_CNYT"</span><span class="p">:{</span><span class="w">
+                            </span><span class="nl">"percentChange"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"high24hr"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"last"</span><span class="p">:</span><span class="s2">"0.008"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"highestBid"</span><span class="p">:</span><span class="s2">"0.007"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">39</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"isFrozen"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+                            </span><span class="nl">"baseVolume"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"lowestAsk"</span><span class="p">:</span><span class="s2">"0.008"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"low24hr"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h2 id='currency-information'><span>Currency information</span></h2>
+<p>Back to currency related info</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>GET/api/v1/public?command=returnCurrencies</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/public?command=returnCurrencies&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<p>No parameter is needed for this endpoint.</p>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>maxQty</td>
+<td>string</td>
+<td>Max Withdrawal</td>
+</tr>
+<tr>
+<td>minQty</td>
+<td>string</td>
+<td>Min Withdrawal</td>
+</tr>
+<tr>
+<td>recharge</td>
+<td>string</td>
+<td>Whether it can be deposited, 0 cannot 1 can</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>Currency</td>
+</tr>
+<tr>
+<td>symbolId</td>
+<td>string</td>
+<td>Symbol</td>
+</tr>
+<tr>
+<td>txFee</td>
+<td>string</td>
+<td>Fee</td>
+</tr>
+<tr>
+<td>withDraw</td>
+<td>string</td>
+<td>Whether it can be withdrawn, 0 cannot 1 can</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                    </span><span class="nl">"HC"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"maxQty"</span><span class="p">:</span><span class="s2">"1000000.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"minQty"</span><span class="p">:</span><span class="s2">"10.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"recharge"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"HC"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"symbolId"</span><span class="p">:</span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"txFee"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"withDraw"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"LEEK"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"maxQty"</span><span class="p">:</span><span class="s2">"999999.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"minQty"</span><span class="p">:</span><span class="s2">"1000.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"recharge"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"LEEK"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"symbolId"</span><span class="p">:</span><span class="s2">"55"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"txFee"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"withDraw"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
+                    </span><span class="p">},</span><span class="nl">"XMR"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"maxQty"</span><span class="p">:</span><span class="s2">"1000.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"minQty"</span><span class="p">:</span><span class="s2">"0.1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"recharge"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"XMR"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"symbolId"</span><span class="p">:</span><span class="s2">"88"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"txFee"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"withDraw"</span><span class="p">:</span><span class="s2">"1"</span><span class="w">
+                    </span><span class="p">},</span><span class="nl">"GLA"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"maxQty"</span><span class="p">:</span><span class="s2">"9.99999999E8"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"minQty"</span><span class="p">:</span><span class="s2">"100.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"recharge"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"symbol"</span><span class="p">:</span><span class="s2">"GLA"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"symbolId"</span><span class="p">:</span><span class="s2">"39"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"txFee"</span><span class="p">:</span><span class="s2">"0.0"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"withDraw"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h1 id='market-api'>Market API</h1>
+<p>Get current market data</p>
+<h2 id='get-depth'><span>Get depth</span></h2>
+<p>Get depth</p>
+
+<p>Back to the trading pair depth info</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>GET /api/v1/public?command=returnOrderBook</p>
+</blockquote>
+
+<p><code>curl
+&quot;https://api.coinw.fm/api/v1/public?command=returnOrderBook&amp;symbol=BTC_CNYT&amp;size=20&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>DataType</th>
+<th>must</th>
+<th>Defaults</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>size</td>
+<td>Int</td>
+<td>false</td>
+<td>5</td>
+<td>Depth</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td></td>
+<td>Trading pair like: BTC-CNYT</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>asks</td>
+<td>string</td>
+<td>Buyer&#39;sdepth</td>
+</tr>
+<tr>
+<td>bids</td>
+<td>string</td>
+<td>Seller&#39;s depth</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                  </span><span class="p">{</span><span class="w">
+                      </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                      </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                          </span><span class="nl">"asks"</span><span class="p">:[</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"3.263"</span><span class="p">,</span><span class="s2">"0.01"</span><span class="p">],</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"7.90"</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"8.00"</span><span class="p">,</span><span class="s2">"20.55"</span><span class="p">],</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"8.177"</span><span class="p">,</span><span class="s2">"51.25"</span><span class="p">],</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"8.287"</span><span class="p">,</span><span class="s2">"202.05"</span><span class="p">]</span><span class="w">
+                          </span><span class="p">],</span><span class="w">
+                          </span><span class="nl">"bids"</span><span class="p">:[</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"3.262"</span><span class="p">,</span><span class="s2">"302.00"</span><span class="p">],</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"3.261"</span><span class="p">,</span><span class="s2">"233.10"</span><span class="p">],</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"3.26"</span><span class="p">,</span><span class="s2">"34.00"</span><span class="p">],</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"3.259"</span><span class="p">,</span><span class="s2">"416.90"</span><span class="p">],</span><span class="w">
+                              </span><span class="p">[</span><span class="s2">"3.258"</span><span class="p">,</span><span class="s2">"113.50"</span><span class="p">]</span><span class="w">
+                          </span><span class="p">]</span><span class="w">
+                      </span><span class="p">},</span><span class="w">
+                      </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div><h2 id='latest-trading-pair'><span>Latest trading pair</span></h2>
+<p>Back to the trading pair&#39;s last 200 trades</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>GET /api/v1/public?command=returnTradeHistory</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/public?command=returnTradeHistory&amp;symbol=CWT_CNYT&amp;start=1579238517000&amp;end=1581916917660&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>Trading pair like: BTC_CNYT</td>
+</tr>
+<tr>
+<td>start</td>
+<td>string</td>
+<td>false</td>
+<td>Start time：UNIX timestamp</td>
+</tr>
+<tr>
+<td>end</td>
+<td>string</td>
+<td>false</td>
+<td>End time：UNIX timestamp</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data  Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Trading ID</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Type</td>
+</tr>
+<tr>
+<td>price</td>
+<td>string</td>
+<td>Unit</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>Total quantity</td>
+</tr>
+<tr>
+<td>total</td>
+<td>string</td>
+<td>Total amount</td>
+</tr>
+<tr>
+<td>time</td>
+<td>string</td>
+<td>Trading time</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+                  </span><span class="p">{</span><span class="w">
+                      </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                      </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+
+
+                         </span><span class="nl">"amount"</span><span class="p">:</span><span class="mf">49.2</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"total"</span><span class="p">:</span><span class="mf">160.5888</span><span class="p">,</span><span class="w">
+
+                          </span><span class="nl">"price"</span><span class="p">:</span><span class="mf">3.264</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">416253782</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"time"</span><span class="p">:</span><span class="s2">"2020-01-09 10:10:15"</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"buy"</span><span class="w">
+                      </span><span class="p">},{</span><span class="w">
+                          </span><span class="nl">"amount"</span><span class="p">:</span><span class="mf">63.4</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"total"</span><span class="p">:</span><span class="mf">207.1278</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"price"</span><span class="p">:</span><span class="mf">3.267</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">416253778</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"time"</span><span class="p">:</span><span class="s2">"2020-01-09 10:10:15"</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"sell"</span><span class="w">
+                          </span><span class="p">}</span><span class="w">
+                      </span><span class="p">],</span><span class="w">
+                      </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='k-line-data'><span>K-line data</span></h2>
+<p>Back to K-line data</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>GET /api/v1/public?command=returnChartData</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/public?currencyPair=CWT_CNYT&amp;command=returnChartData&amp;period=1800&amp;start=1580992380&amp;end=1582288440&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>period</td>
+<td>Int</td>
+<td>True</td>
+<td>Cycle: Sec. such as: 60, 180, 300, 900, 1800, 7200, 14400</td>
+</tr>
+<tr>
+<td>currencyPair</td>
+<td>String</td>
+<td>True</td>
+<td></td>
+</tr>
+<tr>
+<td>start</td>
+<td>String</td>
+<td>False</td>
+<td>Start</td>
+</tr>
+<tr>
+<td>end</td>
+<td>String</td>
+<td>False</td>
+<td>End</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>Time</td>
+</tr>
+<tr>
+<td>high</td>
+<td>string</td>
+<td>High</td>
+</tr>
+<tr>
+<td>low</td>
+<td>string</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>open</td>
+<td>string</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>close</td>
+<td>string</td>
+<td>Close</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>string</td>
+<td>Volume</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:[{</span><span class="w">
+              </span><span class="nl">"date"</span><span class="p">:</span><span class="mf">1.5809922E12</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"volume"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"high"</span><span class="p">:</span><span class="mf">8.803</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"low"</span><span class="p">:</span><span class="mf">8.803</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="mf">8.803</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="mf">8.803</span><span class="w">
+            </span><span class="p">},{</span><span class="w">
+              </span><span class="nl">"date"</span><span class="p">:</span><span class="mf">1.580994E12</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"volume"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"high"</span><span class="p">:</span><span class="mf">8.803</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"low"</span><span class="p">:</span><span class="mf">8.803</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="mf">8.803</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="mf">8.803</span><span class="w">
+            </span><span class="p">},{</span><span class="w">
+              </span><span class="nl">"date"</span><span class="p">:</span><span class="mf">1.5822864E12</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"volume"</span><span class="p">:</span><span class="mf">121503.276</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"high"</span><span class="p">:</span><span class="mf">9.587</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"low"</span><span class="p">:</span><span class="mf">9.169</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="mf">9.4949</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="mf">9.4274</span><span class="w">
+            </span><span class="p">},{</span><span class="w">
+              </span><span class="nl">"date"</span><span class="p">:</span><span class="mf">1.5822882E12</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"volume"</span><span class="p">:</span><span class="mf">137447.694</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"high"</span><span class="p">:</span><span class="mf">9.575</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"low"</span><span class="p">:</span><span class="mf">9.191</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"close"</span><span class="p">:</span><span class="mf">9.4599</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"open"</span><span class="p">:</span><span class="mf">9.4949</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='hot-currency-volume'><span>Hot currency volume</span></h2>
+<p>Get trading pair 24H volume</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>GET /api/v1/public?command=return24hVolume</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/public?command=return24hVolume&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<p>No parameter is needed for this endpoint.</p>
+
+<p>Response Content</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"totalETH"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"USDT_CNYT"</span><span class="p">:{</span><span class="w">
+              </span><span class="nl">"USDT"</span><span class="p">:</span><span class="s2">"9507323.2456"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"CNYT"</span><span class="p">:</span><span class="s2">"66883008.0578"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"totalUSDT"</span><span class="p">:</span><span class="s2">"375022045.7914"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"ETH_USDT"</span><span class="p">:{</span><span class="w">
+              </span><span class="nl">"ETH"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"USDT"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"totalBTC"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"CWT_CNYT"</span><span class="p">:{</span><span class="w">
+              </span><span class="nl">"CWT"</span><span class="p">:</span><span class="s2">"6003449.28"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"CNYT"</span><span class="p">:</span><span class="s2">"55189103.6876"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"BTC_CNYT"</span><span class="p">:{</span><span class="w">
+              </span><span class="nl">"BTC"</span><span class="p">:</span><span class="s2">"46550.1319"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"CNYT"</span><span class="p">:</span><span class="s2">"2516207980.3979"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"BTC_USDT"</span><span class="p">:{</span><span class="w">
+              </span><span class="nl">"BTC"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"USDT"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"ETH_CNYT"</span><span class="p">:{</span><span class="w">
+              </span><span class="nl">"ETH"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"CNYT"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='trade-api'>Trade API</h1>
+<p>For fast trading</p>
+<h2 id='pending-order-list'><span>Pending order list</span></h2>
+<p>Back to the trading pair&#39;s pending order list</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=returnOpenOrders</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=returnOpenOrders&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyPair</td>
+<td>string</td>
+<td>true</td>
+<td>Trading pair</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumber</td>
+<td>string</td>
+<td>Order no.</td>
+</tr>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>Trading time</td>
+</tr>
+<tr>
+<td>startingAmount</td>
+<td>string</td>
+<td>Order total amount</td>
+</tr>
+<tr>
+<td>total</td>
+<td>string</td>
+<td>Total order</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td>prize</td>
+<td>string</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td>success_count</td>
+<td>string</td>
+<td>Total traded quantity</td>
+</tr>
+<tr>
+<td>success_amount</td>
+<td>string</td>
+<td>Total traded amount</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="mi">421547953</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"date"</span><span class="p">:</span><span class="mi">1577419268000</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startingAmount"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"total"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"prize"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"success_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"success_amount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='order-details'><span>Order details</span></h2>
+<p>Back to the order detail information</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=returnOrderTrades</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=returnOrderTrades&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumber</td>
+<td>string</td>
+<td>true</td>
+<td>Order</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tradeID</td>
+<td>string</td>
+<td>Trading ID</td>
+</tr>
+<tr>
+<td>currencyPair</td>
+<td>string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>Total trading amount</td>
+</tr>
+<tr>
+<td>success_amount</td>
+<td>string</td>
+<td>Traded amount</td>
+</tr>
+<tr>
+<td>total</td>
+<td>string</td>
+<td>Total order</td>
+</tr>
+<tr>
+<td>success_total</td>
+<td>string</td>
+<td>Traded quantity</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>string</td>
+<td>Unit</td>
+</tr>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>Trading time</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                  </span><span class="p">{</span><span class="w">
+                      </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                      </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                          </span><span class="nl">"tradeID"</span><span class="p">:</span><span class="mi">421547953</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"currencyPair"</span><span class="p">:</span><span class="s2">"CWT_CNYT"</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"amount"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"success_amount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"total"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"success_total"</span><span class="p">:</span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"fee"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"date"</span><span class="p">:</span><span class="s2">"2019-12-27 12:01:08"</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+                      </span><span class="p">},</span><span class="w">
+                      </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='order-status'><span>Order status</span></h2>
+<p>Back to the order satus information</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=returnOrderStatus</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=returnOrderStatus&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumber</td>
+<td>string</td>
+<td>true</td>
+<td>Order no.</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyPair</td>
+<td>string</td>
+<td>Trading pair</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td>total</td>
+<td>string</td>
+<td>Total order</td>
+</tr>
+<tr>
+<td>startingAmount</td>
+<td>string</td>
+<td>Order amount</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"currencyPair"</span><span class="p">:</span><span class="s2">"CWT_CNYT"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"date"</span><span class="p">:</span><span class="s2">"2019-12-27 12:01:08"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"total"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"startingAmount"</span><span class="p">:</span><span class="mi">11</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='history-order'><span> History order </span></h2>
+<p>Back to the trading pair&#39;s traded records, 1000 at most</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=returnUTradeHistory</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=returnUTradeHistory&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyPair</td>
+<td>string</td>
+<td>true</td>
+<td>Trading pair</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tradeID</td>
+<td>string</td>
+<td>Trading ID</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Order type</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>Total trading amount</td>
+</tr>
+<tr>
+<td>success_amount</td>
+<td>string</td>
+<td>Traded amount</td>
+</tr>
+<tr>
+<td>total</td>
+<td>string</td>
+<td>Total order</td>
+</tr>
+<tr>
+<td>success_count</td>
+<td>string</td>
+<td>Traded quantity</td>
+</tr>
+<tr>
+<td>fee</td>
+<td>string</td>
+<td>Fee</td>
+</tr>
+<tr>
+<td>prize</td>
+<td>string</td>
+<td>Order price</td>
+</tr>
+<tr>
+<td>date</td>
+<td>string</td>
+<td>Trading time</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status: 1-pending, 2-partial pending, 3-all completed, 4-user cancel</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+                        </span><span class="p">{</span><span class="w">
+                            </span><span class="nl">"tradeID"</span><span class="p">:</span><span class="mi">421547953</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"date"</span><span class="p">:</span><span class="mi">1577419268000</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"amount"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"total"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"fee"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"prize"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"success_count"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"success_amount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+                        </span><span class="p">},{</span><span class="w">
+                            </span><span class="nl">"tradeID"</span><span class="p">:</span><span class="mi">401267521</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"date"</span><span class="p">:</span><span class="mi">1573463699000</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"amount"</span><span class="p">:</span><span class="mf">111.1011</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"total"</span><span class="p">:</span><span class="mf">33.43</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"fee"</span><span class="p">:</span><span class="mf">3.323</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"prize"</span><span class="p">:</span><span class="mf">3.323</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"success_count"</span><span class="p">:</span><span class="mf">33.43</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"success_amount"</span><span class="p">:</span><span class="mf">111.1011</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+                        </span><span class="p">},{</span><span class="w">
+                            </span><span class="nl">"tradeID"</span><span class="p">:</span><span class="mi">393755271</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"date"</span><span class="p">:</span><span class="mi">1573036041000</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"amount"</span><span class="p">:</span><span class="mf">138.7007</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"total"</span><span class="p">:</span><span class="mf">39.18</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"fee"</span><span class="p">:</span><span class="mf">3.54</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"buy"</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"prize"</span><span class="p">:</span><span class="mf">3.54</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"success_count"</span><span class="p">:</span><span class="mf">39.18</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"success_amount"</span><span class="p">:</span><span class="mf">138.7007</span><span class="p">,</span><span class="w">
+                            </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+                        </span><span class="p">}</span><span class="w">
+                    </span><span class="p">],</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='order'><span> Order </span></h2>
+<p>Order</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=doTrade</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=doTrade&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>Trading pair like: BTC_CNYT</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>true</td>
+<td>Order type: 0-buy, 1-sell</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>double</td>
+<td>true</td>
+<td>Order quantity</td>
+</tr>
+<tr>
+<td>rate</td>
+<td>double</td>
+<td>true</td>
+<td>Order price</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumber</td>
+<td>string</td>
+<td>Order no.</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                  </span><span class="p">{</span><span class="w">
+                      </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                      </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                          </span><span class="nl">"orderNumber"</span><span class="p">:</span><span class="mi">422742231</span><span class="w">
+                      </span><span class="p">},</span><span class="w">
+                      </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='cancel-order'><span> Cancel order </span></h2>
+<p>Cancel the order</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=cancelOrder</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=cancelOrder&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumber</td>
+<td>string</td>
+<td>true</td>
+<td>Order no.</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>clientOrderId</td>
+<td>string</td>
+<td>Order no.</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"clientOrderId"</span><span class="p">:</span><span class="mi">422744738</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='cancel-all-order'><span>Cancel all order </span></h2>
+<p>Cancel all order</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=cancelAllOrder</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=cancelAllOrder&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyPair</td>
+<td>string</td>
+<td>False</td>
+<td>Trading pair</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderNumbers</td>
+<td>Array</td>
+<td>Order no. list</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"orderNumbers"</span><span class="p">:[</span><span class="mi">421547953</span><span class="p">]</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='withdraw-api'>Withdraw API</h1>
+<p>For fast crypto withdrawal</p>
+<h2 id='available-balance'><span>Available balance </span></h2>
+<p>Return the available balance of the asset account</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=returnBalances</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=returnBalances&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<p>No parameter is needed for this endpoint.</p>
+
+<p>Response Content</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                    </span><span class="nl">"MATIC"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TRIO"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"CTXC"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"BCHSV"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"HT"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"HX"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"SDA"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"CDT"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"GDP"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"IHT"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"STX"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"TNT"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"BCD"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"AE"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"IOST"</span><span class="p">:</span><span class="mf">0.0014</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"0X"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='all-balance'><span>All balance </span></h2>
+<p>Return all balances of the asset account</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=returnCompleteBalances</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=returnCompleteBalances&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<p>No parameter is needed for this endpoint.</p>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>available</td>
+<td>string</td>
+<td>Available balance</td>
+</tr>
+<tr>
+<td>onOrders</td>
+<td>string</td>
+<td>Lock balance</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                        </span><span class="nl">"MATIC"</span><span class="p">:{</span><span class="w">
+                                </span><span class="nl">"onOrders"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"available"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="nl">"TRIO"</span><span class="p">:{</span><span class="w">
+                                </span><span class="nl">"onOrders"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"available"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="nl">"CTXC"</span><span class="p">:{</span><span class="w">
+                                </span><span class="nl">"onOrders"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"available"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="nl">"BCHSV"</span><span class="p">:{</span><span class="w">
+                                </span><span class="nl">"onOrders"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"available"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+                            </span><span class="p">},</span><span class="w">
+                            </span><span class="nl">"HT"</span><span class="p">:{</span><span class="w">
+                                </span><span class="nl">"onOrders"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                                </span><span class="nl">"available"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+                            </span><span class="p">}</span><span class="w">
+                        </span><span class="p">},</span><span class="w">
+                    </span><span class="p">}</span><span class="err">,</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='d-amp-w-history'><span> D&amp;w history </span></h2>
+<p>Get d&amp;w history</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=returnDepositsWithdrawals</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=returnDepositsWithdrawa</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>Currency name</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>Quantity</td>
+</tr>
+<tr>
+<td>depositNumber</td>
+<td>string</td>
+<td>The only number(ID)</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>D&amp;w addresses</td>
+</tr>
+<tr>
+<td>txid</td>
+<td>string</td>
+<td>Trading hash</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>Currency name</td>
+</tr>
+<tr>
+<td>confirmations</td>
+<td>string</td>
+<td>Confirmations</td>
+</tr>
+<tr>
+<td>status</td>
+<td>string</td>
+<td>Status 1: withdrawing 3: withdrawn 4: user cancel</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">              </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"data"</span><span class="p">:[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"amount"</span><span class="p">:</span><span class="mf">31659.654543</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"depositNumber"</span><span class="p">:</span><span class="mi">937963</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"txid"</span><span class="p">:</span><span class="s2">"已提交autocoinone937963Mon Oct 08 20:19:25 CST 2018"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"currency"</span><span class="p">:</span><span class="s2">"HC"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+                    </span><span class="p">},{</span><span class="w">
+                        </span><span class="nl">"amount"</span><span class="p">:</span><span class="mf">398.8</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"depositNumber"</span><span class="p">:</span><span class="mi">903010</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"address"</span><span class="p">:</span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"txid"</span><span class="p">:</span><span class="s2">"已提交autocoinone903010Fri Aug 31 18:26:16 CST 2018"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"currency"</span><span class="p">:</span><span class="s2">"HC"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"confirmations"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"status"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='withdraw'><span> Withdraw </span></h2>
+<p>Withdraw</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=doWithdraw</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=doWithdraw&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>memo</td>
+<td>string</td>
+<td>False</td>
+<td>Memo</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>true</td>
+<td>Withdraw quantity</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>true</td>
+<td>Currency</td>
+</tr>
+<tr>
+<td>address</td>
+<td>string</td>
+<td>true</td>
+<td>Withdrawal address</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='cancel-withdrawal'><span> Cancel withdrawal </span></h2>
+<p>Cancel withdrawal</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<blockquote>
+<p>POST /api/v1/private?command=cancelWithdraw</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.fm/api/v1/private?command=cancelWithdraw&quot;</code></p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>true</td>
+<td>Withdrawal application id</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">              </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"data"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='real-time-quotes'>Real-time quotes</h1>
+<p>Get current market data</p>
+<h2 id='websocket-market-data'><span> Websocket market data </span></h2>
+<p>Websocket market data</p>
+
+<p><strong>HTTP Request</strong></p>
+
+<p>websocket /websocket</p>
+
+<p>websocket &quot;wss://api.coinw.fm//websocket&quot;</p>
+
+<p>Request Parameters</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>must</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event</td>
+<td>string</td>
+<td>True</td>
+<td>Fill inaddChannel</td>
+</tr>
+<tr>
+<td>channel</td>
+<td>string</td>
+<td>True</td>
+<td>Fill in/market</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>int</td>
+<td>CurrencyID</td>
+</tr>
+</tbody></table>
+
+<p>Response Content</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>buy</td>
+<td>Double</td>
+<td>Buy price</td>
+</tr>
+<tr>
+<td>sell</td>
+<td>Double</td>
+<td>Sell price</td>
+</tr>
+<tr>
+<td>high</td>
+<td>Double</td>
+<td>High 24H</td>
+</tr>
+<tr>
+<td>low</td>
+<td>Double</td>
+<td>Low price</td>
+</tr>
+<tr>
+<td>vol</td>
+<td>Double</td>
+<td>Hot currency volume</td>
+</tr>
+<tr>
+<td>last</td>
+<td>Double</td>
+<td>Latest price</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">          </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"channel"</span><span class="p">:</span><span class="s2">"/market"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"res"</span><span class="p">:{</span><span class="w">
+                  </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+                  </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                      </span><span class="nl">"buy"</span><span class="p">:</span><span class="mf">50.0</span><span class="p">,</span><span class="w">
+                      </span><span class="nl">"sell"</span><span class="p">:</span><span class="mf">50.0</span><span class="p">,</span><span class="w">
+                      </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+                          </span><span class="nl">"last"</span><span class="p">:</span><span class="mf">50.0</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"high"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"low"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                          </span><span class="nl">"vol"</span><span class="p">:</span><span class="mf">0.0</span><span class="w">
+                      </span><span class="p">}</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='error-code'>Error code</h1>
+<p>API interface call error code description</p>
+
+<table><thead>
+<tr>
+<th>Error code</th>
+<th>Detail description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Operation success</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Operation failure</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>Internet error</td>
+</tr>
+<tr>
+<td>10002</td>
+<td>API not exist</td>
+</tr>
+<tr>
+<td>10003</td>
+<td>Parameter error</td>
+</tr>
+<tr>
+<td>10004</td>
+<td>No trading permission</td>
+</tr>
+<tr>
+<td>10005</td>
+<td>No withdrawal permission</td>
+</tr>
+<tr>
+<td>10006</td>
+<td>api_key error</td>
+</tr>
+<tr>
+<td>10007</td>
+<td>Signature error</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
