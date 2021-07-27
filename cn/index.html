@@ -408,7 +408,13 @@
             <a href="#8e31dd64fc" class="toc-h1 toc-link" data-title="实时行情">实时行情</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#websocket" class="toc-h2 toc-link" data-title="Websocket行情数据"><span>Websocket行情数据</span></a>
+                    <a href="#d2d733339f" class="toc-h2 toc-link" data-title="前置准备"><span>前置准备</span></a>
+                  </li>
+                  <li>
+                    <a href="#3be7cf2fde" class="toc-h2 toc-link" data-title="创建连接"><span>创建连接</span></a>
+                  </li>
+                  <li>
+                    <a href="#c7b8c0885f" class="toc-h2 toc-link" data-title="公共行情推送"><span>公共行情推送</span></a>
                   </li>
               </ul>
           </li>
@@ -1889,44 +1895,94 @@
 
 </span></code></pre></div><h1 id='8e31dd64fc'>实时行情</h1>
 <p>获取最新市场行情数据</p>
-<h2 id='websocket'><span>Websocket行情数据</span></h2>
-<p>Websocket行情数据</p>
+<h2 id='d2d733339f'><span>前置准备</span></h2>
+<p>前置准备</p>
 
-<p><strong>HTTP 请求</strong></p>
+<p><strong>在创建WebSocket连接前， 需使用Http方式调用<code>https://www.coinw.uk/pusher/public-token</code>接口，根据返回信息进行连接创建</strong></p>
 
-<p>websocket /websocket</p>
+<p><strong>请求参数</strong>
+无</p>
 
-<blockquote>
-<p>websocket &quot;https://api.coinw.fm//websocket&quot;</p>
-</blockquote>
+<p><strong>返回字段</strong></p>
+
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>发起WebSocket时所需身份信息</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td>string</td>
+<td>发起WebSocket时连接地址信息</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>string</td>
+<td>协议</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>服务器时间</td>
+</tr>
+<tr>
+<td>expiredTime</td>
+<td>long</td>
+<td>过期时间</td>
+</tr>
+<tr>
+<td>pingInterval</td>
+<td>long</td>
+<td>心跳检查周期,单位毫秒</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"retry"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2ae60df9-c4d9-40c6-ad51-465ae7cca06f"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://ws.coinw.uk"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"websocket"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1627379009291</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"expiredTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1627379039291</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"pingInterval"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='3be7cf2fde'><span>创建连接</span></h2>
+<p><strong>本WebSocket连接需使用Socket.io框架进行开发，具体开发细则，需根据对应语言获取相应的依赖库。
+根据前置信息返回数据中的token和endpoint,组装成连接所需的URL地址,示例如下:</strong></p>
+
+<p><code>wss://ws.coinw.uk/socket.io/?token=87a34709-2c4a-4eab-8bf2-d477d4689dd0&amp;EIO=3&amp;transport=websocket</code></p>
+<h2 id='c7b8c0885f'><span>公共行情推送</span></h2>
+<p>公共行情推送</p>
 
 <p><strong>请求参数</strong></p>
 
 <table><thead>
 <tr>
 <th>参数名称</th>
-<th>数据类型</th>
-<th>必须</th>
+<th>值</th>
 <th>描述</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>event</td>
-<td>string</td>
-<td>True</td>
-<td></td>
+<td>subscribe</td>
+<td>订阅</td>
 </tr>
 <tr>
-<td>channel</td>
-<td>string</td>
-<td>True</td>
-<td>填写/market</td>
-</tr>
-<tr>
-<td>symbol</td>
-<td>string</td>
-<td>int</td>
-<td>币种ID</td>
+<td>args</td>
+<td>spot/market-api-ticker:${symbol}</td>
+<td>${symbol}为所需订阅的币种，例如:LTC-USDT</td>
 </tr>
 </tbody></table>
 
@@ -1940,54 +1996,94 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>buy</td>
-<td>Double</td>
-<td>买价</td>
+<td>channel</td>
+<td>string</td>
+<td>订阅的通道</td>
 </tr>
 <tr>
-<td>sell</td>
-<td>Double</td>
-<td>卖价</td>
+<td>subject</td>
+<td>string</td>
+<td>所属科目</td>
+</tr>
+<tr>
+<td>buy</td>
+<td>bigdecimal</td>
+<td>买一价</td>
+</tr>
+<tr>
+<td>changePrice</td>
+<td>bigdecimal</td>
+<td>涨跌额</td>
+</tr>
+<tr>
+<td>changeRate</td>
+<td>bigdecimal</td>
+<td>涨跌幅</td>
 </tr>
 <tr>
 <td>high</td>
-<td>Double</td>
+<td>bigdecimal</td>
 <td>24小时最高价</td>
 </tr>
 <tr>
+<td>last</td>
+<td>bigdecimal</td>
+<td>最新价</td>
+</tr>
+<tr>
 <td>low</td>
-<td>Double</td>
-<td>最低价</td>
+<td>bigdecimal</td>
+<td>24小时最低价</td>
+</tr>
+<tr>
+<td>open</td>
+<td>bigdecimal</td>
+<td>开盘价</td>
+</tr>
+<tr>
+<td>sell</td>
+<td>bigdecimal</td>
+<td>卖一价</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>币种</td>
 </tr>
 <tr>
 <td>vol</td>
-<td>Double</td>
-<td>热门币种成交量</td>
+<td>bigdecimal</td>
+<td>成交数量</td>
 </tr>
 <tr>
-<td>last</td>
-<td>Double</td>
-<td>最新成交价</td>
+<td>volValue</td>
+<td>bigdecimal</td>
+<td>成交额</td>
 </tr>
 </tbody></table>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
-          </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"channel"</span><span class="p">:</span><span class="s2">"/market"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"res"</span><span class="p">:{</span><span class="w">
-                  </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
-                      </span><span class="nl">"buy"</span><span class="p">:</span><span class="mf">50.0</span><span class="p">,</span><span class="w">
-                      </span><span class="nl">"sell"</span><span class="p">:</span><span class="mf">50.0</span><span class="p">,</span><span class="w">
-                      </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
-                          </span><span class="nl">"last"</span><span class="p">:</span><span class="mf">50.0</span><span class="p">,</span><span class="w">
-                          </span><span class="nl">"high"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-                          </span><span class="nl">"low"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
-                          </span><span class="nl">"vol"</span><span class="p">:</span><span class="mf">0.0</span><span class="w">
-                      </span><span class="p">}</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="nl">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
-              </span><span class="p">}</span><span class="w">
-          </span><span class="p">}</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spot/market-api-ticker:LTC-USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"subject"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spot/market-api-ticker"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">buy</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">3.234</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">changePrice</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">-0.666</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">changeRate</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">-0.170769</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">high</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">4.000</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">last</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">3.234</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">low</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">3.234</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">open</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">3.900</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">sell</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">4.000</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">symbol</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">LTC-USDT</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">vol</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">81.360</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">volValue</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">306.280240</span><span class="se">\"</span><span class="s2">}"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p><strong>data 为字符串， 需根据字符串反序列化成JSON</strong></p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"buy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"changePrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.666"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"changeRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.170769"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"high"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"low"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.234"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"open"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.900"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sell"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LTC-USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"vol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"81.360"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"volValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"306.280240"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
 
 </span></code></pre></div><h1 id='cf68bca02a'>错误代码</h1><h2 id='api-6'><span>API接口调用错误代码描述</span></h2>
 <table><thead>
