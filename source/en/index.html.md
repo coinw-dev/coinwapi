@@ -960,58 +960,6 @@ Response Content
                 }
 ```            
 
-# Real-time quotes
-
-Get current market data
-
-## <span> Websocket market data </span>
-
-Websocket market data
-
-**HTTP Request**
-
-websocket /websocket
-
-websocket "wss://api.coinw.fm//websocket"
-
-Request Parameters
-
-Field| 	Data Type	| must	| 	Description
--------------- | -------------- | --------------  | --------------     
-event| 	string	| True	| 	Fill inaddChannel
-channel	| string	| True	| 	Fill in/market
-symbol| 	string	| int	| 	CurrencyID
-Response Content
-
-Field |	Data Type |	Description
--------------- | -------------- | --------------       
-buy |	Double	 |Buy price
-sell |	Double	 |Sell price
-high |	Double	 |High 24H
-low |	Double	 |Low price
-vol |	Double	 |Hot currency volume
-last |	Double	 |Latest price
-
-```json
-          {
-              "channel":"/market",
-              "res":{
-                  "code":"0",
-                  "data":{
-                      "buy":50.0,
-                      "sell":50.0,
-                      "data":{
-                          "last":50.0,
-                          "high":0.0,
-                          "low":0.0,
-                          "vol":0.0
-                      }
-                  },
-                  "success":true
-              }
-          }
-```   
-
 
 # Real-time quotes
 
