@@ -970,8 +970,9 @@ Get current market data
 Pre-preparation
 
 
-**Before creating a connection, you need to call `https://www.coinw.uk/pusher/public-token`,**
+**Before creating a connection, you need to call:**
 
+`https://www.coinw.uk/pusher/public-token`
 
 **Request Parameters**
 none

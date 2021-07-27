@@ -958,7 +958,9 @@ id| 	string	| true		| 提币申请id
 前置准备
 
 
-**在创建WebSocket连接前， 需使用Http方式调用`https://www.coinw.uk/pusher/public-token`接口，根据返回信息进行连接创建**
+**在创建WebSocket连接前， 需使用Http方式调用以下接口，根据返回信息进行连接创建**
+
+`https://www.coinw.uk/pusher/public-token`
 
 **请求参数**
 无
