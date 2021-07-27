@@ -1010,7 +1010,121 @@ last |	Double	 |Latest price
                   "success":true
               }
           }
-```      
+```   
+
+
+# Real-time quotes
+
+Get current market data
+
+## <span>Pre-preparation</span>        
+
+Pre-preparation
+
+
+**Before creating a connection, you need to call `https://www.coinw.uk/pusher/public-token`,**
+
+
+**Request Parameters**
+none
+
+**Response Content**
+
+Field |	Data Type |	Description
+-------------- | -------------- | --------------    
+token |	string |	Identity information required to initiate WebSocket
+endpoint |	string	 |Address information required to initiate WebSocket
+protocol |	string	 |
+timestamp |	long	  |server time
+expiredTime |	long	 |expire Time
+pingInterval |	long	 |Heartbeat check period, in milliseconds
+
+```json
+{
+	"success": true,
+	"code": 200,
+	"message": "success",
+	"retry": false,
+	"data": {
+		"token": "2ae60df9-c4d9-40c6-ad51-465ae7cca06f",
+		"endpoint": "wss://ws.coinw.uk",
+		"protocol": "websocket",
+		"timestamp": 1627379009291,
+		"expiredTime": 1627379039291,
+		"pingInterval": 10000
+	}
+}
+```
+
+## <span>Create connection</span>
+
+**This WebSocket connection needs to be developed using the Socket.io framework, and the corresponding dependency library needs to be obtained according to the corresponding language,The example is as follows:**
+
+`wss://ws.coinw.uk/socket.io/?token=87a34709-2c4a-4eab-8bf2-d477d4689dd0&EIO=3&transport=websocket`
+
+## <span> Websocket market data </span>
+
+Websocket market data
+
+
+**Request Parameters**
+
+Field |	value |	Description
+-------------- | -------------- | --------------    
+event |	subscribe | 
+args |	spot/market-api-ticker:${symbol}	 |${symbol},example:LTC-USDT
+
+
+**Response Content**
+
+Field |	Data Type |	Description
+-------------- | -------------- | --------------    
+channel |	string |	
+subject |	string	 |
+buy |	bigdecimal	 | 
+changePrice |	bigdecimal	  |ups and downs
+changeRate |	bigdecimal	 |quote change
+high |	bigdecimal	 |
+last |	bigdecimal	 |
+low |	bigdecimal	  |
+open |	bigdecimal	 |
+sell |	bigdecimal	 |
+symbol |	string	 |
+vol |	bigdecimal	  |
+volValue |	bigdecimal	 |
+
+```json
+
+         {
+         	"channel": "spot/market-api-ticker:LTC-USDT",
+         	"subject": "spot/market-api-ticker",
+         	"data": "{\"buy\":\"3.234\",\"changePrice\":\"-0.666\",\"changeRate\":\"-0.170769\",\"high\":\"4.000\",\"last\":\"3.234\",\"low\":\"3.234\",\"open\":\"3.900\",\"sell\":\"4.000\",\"symbol\":\"LTC-USDT\",\"vol\":\"81.360\",\"volValue\":\"306.280240\"}"
+         }
+   
+```   
+**data is string, need to deserialize to JSON**
+
+
+```json
+
+        {
+        	"buy": "3.234",
+        	"changePrice": "-0.666",
+        	"changeRate": "-0.170769",
+        	"high": "4.000",
+        	"last": "3.234",
+        	"low": "3.234",
+        	"open": "3.900",
+        	"sell": "4.000",
+        	"symbol": "LTC-USDT",
+        	"vol": "81.360",
+        	"volValue": "306.280240"
+        }
+   
+``` 
+
+
+   
 # Error code
 
 API interface call error code description

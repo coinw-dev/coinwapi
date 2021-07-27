@@ -953,59 +953,111 @@ id| 	string	| true		| 提币申请id
 
 获取最新市场行情数据
 
-## <span>Websocket行情数据</span>        
+## <span>前置准备</span>        
+
+前置准备
 
 
-
-Websocket行情数据
-
-**HTTP 请求**
-
-websocket /websocket
-
-> websocket "https://api.coinw.fm//websocket"
+**在创建WebSocket连接前， 需使用Http方式调用`https://www.coinw.uk/pusher/public-token`接口，根据返回信息进行连接创建**
 
 **请求参数**
-
-参数名称|	数据类型	|必须	|	描述
--------------- | -------------- | --------------  | --------------  
-event	|string	|True	|	|填写addChannel
-channel	|string	|True	|	填写/market
-symbol|	string|	int	|	币种ID
+无
 
 **返回字段**
 
 参数名称	 |数据类型 |	描述
 -------------- | -------------- | --------------    
-buy |	Double |	买价
-sell |	Double	 |卖价
-high |	Double	 |24小时最高价
-low |	Double	  |最低价
-vol |	Double	 |热门币种成交量
-last |	Double	 |最新成交价
+token |	string |	发起WebSocket时所需身份信息
+endpoint |	string	 |发起WebSocket时连接地址信息
+protocol |	string	 |协议
+timestamp |	long	  |服务器时间
+expiredTime |	long	 |过期时间
+pingInterval |	long	 |心跳检查周期,单位毫秒
+
+```json
+{
+	"success": true,
+	"code": 200,
+	"message": "success",
+	"retry": false,
+	"data": {
+		"token": "2ae60df9-c4d9-40c6-ad51-465ae7cca06f",
+		"endpoint": "wss://ws.coinw.uk",
+		"protocol": "websocket",
+		"timestamp": 1627379009291,
+		"expiredTime": 1627379039291,
+		"pingInterval": 10000
+	}
+}
+```
+
+## <span>创建连接</span>
+
+**本WebSocket连接需使用Socket.io框架进行开发，具体开发细则，需根据对应语言获取相应的依赖库。
+根据前置信息返回数据中的token和endpoint,组装成连接所需的URL地址,示例如下:**
+
+`wss://ws.coinw.uk/socket.io/?token=87a34709-2c4a-4eab-8bf2-d477d4689dd0&EIO=3&transport=websocket`
+
+## <span>公共行情推送</span>
+
+公共行情推送
+
+
+**请求参数**
+
+参数名称	 |值 |	描述
+-------------- | -------------- | --------------    
+event |	subscribe | 订阅
+args |	spot/market-api-ticker:${symbol}	 |${symbol}为所需订阅的币种，例如:LTC-USDT
+
+
+**返回字段**
+
+参数名称	 |数据类型 |	描述
+-------------- | -------------- | --------------    
+channel |	string |	订阅的通道
+subject |	string	 |所属科目
+buy |	bigdecimal	 | 买一价
+changePrice |	bigdecimal	  |涨跌额
+changeRate |	bigdecimal	 |涨跌幅
+high |	bigdecimal	 |24小时最高价
+last |	bigdecimal	 |最新价
+low |	bigdecimal	  |24小时最低价
+open |	bigdecimal	 |开盘价
+sell |	bigdecimal	 |卖一价
+symbol |	string	 |币种
+vol |	bigdecimal	  |成交数量
+volValue |	bigdecimal	 |成交额
 
 ```json
 
-          {
-              "channel":"/market",
-              "res":{
-                  "code":"0",
-                  "data":{
-                      "buy":50.0,
-                      "sell":50.0,
-                      "data":{
-                          "last":50.0,
-                          "high":0.0,
-                          "low":0.0,
-                          "vol":0.0
-                      }
-                  },
-                  "success":true
-              }
-          }
+         {
+         	"channel": "spot/market-api-ticker:LTC-USDT",
+         	"subject": "spot/market-api-ticker",
+         	"data": "{\"buy\":\"3.234\",\"changePrice\":\"-0.666\",\"changeRate\":\"-0.170769\",\"high\":\"4.000\",\"last\":\"3.234\",\"low\":\"3.234\",\"open\":\"3.900\",\"sell\":\"4.000\",\"symbol\":\"LTC-USDT\",\"vol\":\"81.360\",\"volValue\":\"306.280240\"}"
+         }
    
 ```   
+**data 为字符串， 需根据字符串反序列化成JSON**
 
+
+```json
+
+        {
+        	"buy": "3.234",
+        	"changePrice": "-0.666",
+        	"changeRate": "-0.170769",
+        	"high": "4.000",
+        	"last": "3.234",
+        	"low": "3.234",
+        	"open": "3.900",
+        	"sell": "4.000",
+        	"symbol": "LTC-USDT",
+        	"vol": "81.360",
+        	"volValue": "306.280240"
+        }
+   
+``` 
 # 错误代码
 
 ## <span>API接口调用错误代码描述</span>        
