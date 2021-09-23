@@ -76,7 +76,7 @@ code_clipboard: true
 
 > GET /api/v1/public?command=returnTicker
 
-`curl "https://api.coinw.fm/api/v1/public?command=returnTicker"`
+`curl "https://api.coinw.uk/api/v1/public?command=returnTicker"`
 
 **请求参数**
 
@@ -122,7 +122,7 @@ baseVolume	|string	|基础币种24小时交易量|
 
 > GET/api/v1/public?command=returnCurrencies
 
-`curl "https://api.coinw.fm/api/v1/public?command=returnCurrencies"`
+`curl "https://api.coinw.uk/api/v1/public?command=returnCurrencies"`
 
 **请求参数**
 
@@ -183,6 +183,60 @@ withDraw	|string	|是否能够提现，0不能1可以
                 }
        
 ``` 
+
+## <span>交易对信息</span>
+
+返回交易对的相关信息
+
+**HTTP 请求**
+
+> GET/api/v1/public?command=returnSymbol
+
+`curl "https://api.coinw.uk/api/v1/public?command=returnSymbol"`
+
+**请求参数**
+
+此接口不接受任何参数。
+
+**返回字段**
+
+| 字段 |含义|例子
+-------------- | -------------- | -------------- 
+|currencyPair| 交易对|"lat_USDT"|
+|currencyBase| 交易对中的基础币种|"lat"|
+|currencyQuote| 交易对中的计价币种|"USDT|
+|maxBuyCount| 最大挂单数量|"99999999"|
+|minBuyCount| 最小挂单数量|"0.001"|
+|pricePrecision|价格精度 |4|
+|countPrecision|数量精度| 4|
+|minBuyAmount|最小挂单金额| "10.0"|
+|maxBuyAmount| 最大挂单金额|"99999999"|
+|minBuyPrice| 最小挂单价格|"99999999"|
+|maxBuyPrice| 最大挂单价格|"99999999"|
+|state|1：正常 2：禁用 |1|
+
+
+```json
+
+ { "code": "200",
+  "data": [
+    {
+      "currencyBase": "BTC3L",
+      "maxBuyCount": "99999999",
+      "pricePrecision": 6,
+      "minBuyPrice": "0.0000010",
+      "currencyPair": "BTC3L_USDT",
+      "minBuyAmount": "5.0",
+      "maxBuyPrice": "99999999",
+      "currencyQuote": "USDT",
+      "countPrecision": 3,
+      "minBuyCount": "0.001",
+      "state": 1,
+      "maxBuyAmount": "99999999"
+    }
+]
+}
+```
 # 行情API
 
 获取最新市场行情数据
@@ -196,7 +250,7 @@ withDraw	|string	|是否能够提现，0不能1可以
 
 > GET /api/v1/public?command=returnOrderBook
 
-`curl "https://api.coinw.fm/api/v1/public?command=returnOrderBook&symbol=BTC_CNYT&size=20"`
+`curl "https://api.coinw.uk/api/v1/public?command=returnOrderBook&symbol=BTC_CNYT&size=20"`
 
 **请求参数**
 
@@ -244,7 +298,7 @@ bids	|string	|卖方深度
 
 > GET /api/v1/public?command=returnTradeHistory
 
-`curl "https://api.coinw.fm/api/v1/public?command=returnTradeHistory&symbol=CWT_CNYT&start=1579238517000&end=1581916917660"`
+`curl "https://api.coinw.uk/api/v1/public?command=returnTradeHistory&symbol=CWT_CNYT&start=1579238517000&end=1581916917660"`
 
 **请求参数**
 
@@ -298,7 +352,7 @@ time|	string|	交易时间
 
 > GET /api/v1/public?command=returnChartData
 
-`curl "https://api.coinw.fm/api/v1/public?currencyPair=CWT_CNYT&command=returnChartData&period=1800&start=1580992380&end=1582288440"`
+`curl "https://api.coinw.uk/api/v1/public?currencyPair=CWT_CNYT&command=returnChartData&period=1800&start=1580992380&end=1582288440"`
 
 **请求参数**
 
@@ -365,7 +419,7 @@ volume	| string	| 成交量
 
 > GET /api/v1/public?command=return24hVolume
 
-`curl "https://api.coinw.fm/api/v1/public?command=return24hVolume"`
+`curl "https://api.coinw.uk/api/v1/public?command=return24hVolume"`
 
 **请求参数**
 
@@ -423,13 +477,17 @@ volume	| string	| 成交量
 
 > POST /api/v1/private?command=returnOpenOrders
 
-`curl "https://api.coinw.fm/api/v1/private?command=returnOpenOrders"`
+`curl "https://api.coinw.uk/api/v1/private?command=returnOpenOrders"`
 
 **请求参数**
 
 参数名称|	数据类型	|必须	|	描述
 -------------- | -------------- | --------------  | --------------  
 currencyPair	|string	|true	|	交易对
+startAt	|long	|false	|	起始时间
+endAt	|long	|false	|	结束时间
+
+
 **返回字段**
 
 参数名称 |	数据类型	 |描述
@@ -472,7 +530,7 @@ status	 |string	 |状态:1-未完成、2-部分成交、3-完全成交、4-用�
 
 > POST /api/v1/private?command=returnOrderTrades
 
-`curl "https://api.coinw.fm/api/v1/private?command=returnOrderTrades"`
+`curl "https://api.coinw.uk/api/v1/private?command=returnOrderTrades"`
 
 **请求参数**
 
@@ -524,7 +582,7 @@ status	|string|	状态:1-未完成、2-部分成交、3-完全成交、4-用户�
 
 > POST /api/v1/private?command=returnOrderStatus
 
-`curl "https://api.coinw.fm/api/v1/private?command=returnOrderStatus"`
+`curl "https://api.coinw.uk/api/v1/private?command=returnOrderStatus"`
 
 **请求参数**
 
@@ -556,21 +614,23 @@ status	|string	|状态:1-未完成、2-部分成交、3-完全成交、4-用户�
                 }
 ```
   
-## <span>历史成交</span>  
+## <span>历史订单</span>  
 
-返回指定交易对的成交历史，最多1000条
+返回指定交易对的历史订单，最多1000条
 
 **HTTP 请求**
 
 > POST /api/v1/private?command=returnUTradeHistory
 
-`curl "https://api.coinw.fm/api/v1/private?command=returnUTradeHistory"`
+`curl "https://api.coinw.uk/api/v1/private?command=returnUTradeHistory"`
 
 **请求参数**
 
 参数名称	|数据类型	|必须	|	描述
 -------------- | -------------- | -------------- | --------------
 currencyPair|	string|	true|		交易对
+startAt	|long	|false	|	起始时间
+endAt	|long	|false	|	结束时间
 
 **返回字段**
 
@@ -630,6 +690,63 @@ status	 | string	 | 状态:1-未完成、2-部分成交、3-完全成交、4-用
                 }
    
 ```
+## <span>历史成交</span>  
+
+返回指定交易对的历史成交，每次最多100条
+
+**HTTP 请求**
+
+> POST /api/v1/private?command=getUserTrades
+
+`curl "https://api.coinw.uk/api/v1/private?command=getUserTrades"`
+
+**请求参数**
+
+参数名称	|数据类型	|必须	|	描述
+-------------- | -------------- | -------------- | --------------
+|symbol| string | N | 币种对名称：LTC_USDT
+|startAt| long | N | 开始时间：时间戳
+|endAt | long | N | 结束时间：时间戳
+|limit|int|N|查询条数  0<limit<=100（不传默认20）
+|before|long|N|翻页用（上一次调用此接口返回的值，如有）
+|after|long|N|翻页用（上一次调用此接口返回的值，如有）
+      
+**返回字段**
+
+参数名称	 | 数据类型	 | 描述
+-------------- | -------------- | --------------   
+|tradeId| long | 成交ID
+|orderId| long | 订单ID
+|price| string | 成交价格
+|size | string | 成交数量
+|side | string | 成交方向 buy , sell
+|orderType| string | 成交类型 limit
+|time| long | 成交时间
+| fee| double | 手续费
+|before|long|翻页用（如有）
+|after|long|翻页用（如有）    
+      
+```json
+{
+    "code": "200",
+    "data": {
+        "before": 1125899907141206079,
+        "after": 1125899907141206202,
+        "list": [
+            {
+                "fee": 0.14,
+                "orderId": 4612803122241208330,
+                "orderType": "LIMIT",
+                "price": 7E+1,
+                "side": "BUY",
+                "size": 1,
+                "time": 1628068267298,
+                "tradeId": 1029953
+            }
+]
+}
+}
+```      
       
 ## <span>下单</span>     
 
@@ -640,7 +757,7 @@ status	 | string	 | 状态:1-未完成、2-部分成交、3-完全成交、4-用
 
 > POST /api/v1/private?command=doTrade
 
-`curl "https://api.coinw.fm/api/v1/private?command=doTrade"`
+`curl "https://api.coinw.uk/api/v1/private?command=doTrade"`
 
 **请求参数**
 
@@ -676,7 +793,7 @@ orderNumber	|string	|订单号
 
 > POST /api/v1/private?command=cancelOrder
 
-`curl "https://api.coinw.fm/api/v1/private?command=cancelOrder"`
+`curl "https://api.coinw.uk/api/v1/private?command=cancelOrder"`
 
 **请求参数**
 
@@ -711,7 +828,7 @@ clientOrderId	| string| 	订单号
 
 > POST /api/v1/private?command=cancelAllOrder
 
-`curl "https://api.coinw.fm/api/v1/private?command=cancelAllOrder"`
+`curl "https://api.coinw.uk/api/v1/private?command=cancelAllOrder"`
 
 **请求参数**
 
@@ -749,7 +866,7 @@ orderNumbers	|Array	|订单号列表
 
 > POST /api/v1/private?command=returnBalances
 
-`curl "https://api.coinw.fm/api/v1/private?command=returnBalances"`
+`curl "https://api.coinw.uk/api/v1/private?command=returnBalances"`
 
 **请求参数**
 
@@ -792,7 +909,7 @@ orderNumbers	|Array	|订单号列表
 
 > POST /api/v1/private?command=returnCompleteBalances
 
-`curl "https://api.coinw.fm/api/v1/private?command=returnCompleteBalances"`
+`curl "https://api.coinw.uk/api/v1/private?command=returnCompleteBalances"`
 
 **请求参数**
 
@@ -844,7 +961,7 @@ onOrders |	string	 |冻结余额
 
 > POST /api/v1/private?command=returnDepositsWithdrawals
 
-`curl "https://api.coinw.fm/api/v1/private?command=returnDepositsWithdrawa`
+`curl "https://api.coinw.uk/api/v1/private?command=returnDepositsWithdrawa`
 
 **请求参数**
 
@@ -898,7 +1015,7 @@ status	 |string	 |状态１:等待提现 3.提现成功 4.用户撤销
 
 > POST /api/v1/private?command=doWithdraw
 
-`curl "https://api.coinw.fm/api/v1/private?command=doWithdraw"`
+`curl "https://api.coinw.uk/api/v1/private?command=doWithdraw"`
 
 **请求参数**
 
@@ -930,7 +1047,7 @@ address	 |string	 |true	 |	提币地址
 
 > POST /api/v1/private?command=cancelWithdraw
 
-`curl "https://api.coinw.fm/api/v1/private?command=cancelWithdraw"`
+`curl "https://api.coinw.uk/api/v1/private?command=cancelWithdraw"`
 
 **请求参数**
 
