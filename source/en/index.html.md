@@ -783,6 +783,9 @@ symbol|	string|	true	|	Trading pair like: BTC_CNYT
 type|	string	|true	|	Order type: 0-buy, 1-sell
 amount	|double	|true	|	Order quantity
 rate|	double|	true	|	Order price
+funds|string|false|amount Market order is valid
+isMarket	|string	|false|	"true"/"false"
+
 Response Content
 
 Field	|Data Type|	Description

@@ -767,6 +767,9 @@ symbol	|string	|true|		交易对如：BTC_CNYT
 type	|string	|true	|	委托类型：0-买单、1-卖单
 amount	|double	|true	|	委托数量
 rate	|double	|true|		委托价格
+funds|string|false|金额，市价单有效
+isMarket	|string	|false|	"true"/"false", 非市价单可不传
+
 **返回字段**
 
 参数名称|	数据类型	|描述
