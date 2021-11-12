@@ -364,7 +364,15 @@
               </ul>
           </li>
           <li>
-            <a href="#api-4" class="toc-h1 toc-link" data-title="交易API">交易API</a>
+            <a href="#api-4" class="toc-h1 toc-link" data-title="划转API">划转API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#871ccaeca0" class="toc-h2 toc-link" data-title="划转"><span>划转</span></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api-5" class="toc-h1 toc-link" data-title="交易API">交易API</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#d176251a8a" class="toc-h2 toc-link" data-title="未完成订单列表"><span>未完成订单列表</span></a>
@@ -393,7 +401,7 @@
               </ul>
           </li>
           <li>
-            <a href="#api-5" class="toc-h1 toc-link" data-title="提现API">提现API</a>
+            <a href="#api-6" class="toc-h1 toc-link" data-title="提现API">提现API</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#be9396ac4f" class="toc-h2 toc-link" data-title="可用余额"><span>可用余额</span></a>
@@ -430,7 +438,7 @@
             <a href="#cf68bca02a" class="toc-h1 toc-link" data-title="错误代码">错误代码</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#api-6" class="toc-h2 toc-link" data-title="API接口调用错误代码描述"><span>API接口调用错误代码描述</span></a>
+                    <a href="#api-7" class="toc-h2 toc-link" data-title="API接口调用错误代码描述"><span>API接口调用错误代码描述</span></a>
                   </li>
               </ul>
           </li>
@@ -472,7 +480,7 @@
 <p>GET /api/v1/public?command=returnTicker</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/public?command=returnTicker&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/public?command=returnTicker&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -557,7 +565,7 @@
 <p>GET/api/v1/public?command=returnCurrencies</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/public?command=returnCurrencies&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/public?command=returnCurrencies&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -659,7 +667,7 @@
 <p>GET/api/v1/public?command=returnSymbol</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/public?command=returnSymbol&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/public?command=returnSymbol&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -767,7 +775,7 @@
 <p>GET /api/v1/public?command=returnOrderBook</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/public?command=returnOrderBook&amp;symbol=BTC_CNYT&amp;size=20&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/public?command=returnOrderBook&amp;symbol=BTC_CNYT&amp;size=20&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -849,7 +857,7 @@
 <p>GET /api/v1/public?command=returnTradeHistory</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/public?command=returnTradeHistory&amp;symbol=CWT_CNYT&amp;start=1579238517000&amp;end=1581916917660&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/public?command=returnTradeHistory&amp;symbol=CWT_CNYT&amp;start=1579238517000&amp;end=1581916917660&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -953,7 +961,7 @@
 <p>GET /api/v1/public?command=returnChartData</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/public?currencyPair=CWT_CNYT&amp;command=returnChartData&amp;period=1800&amp;start=1580992380&amp;end=1582288440&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/public?currencyPair=CWT_CNYT&amp;command=returnChartData&amp;period=1800&amp;start=1580992380&amp;end=1582288440&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1075,7 +1083,7 @@
 <p>GET /api/v1/public?command=return24hVolume</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/public?command=return24hVolume&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/public?command=return24hVolume&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1116,7 +1124,65 @@
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='api-4'>交易API</h1>
+</span></code></pre></div><h1 id='api-4'>划转API</h1><h2 id='871ccaeca0'><span>划转</span></h2>
+<p>现货、资金账户划转</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<blockquote>
+<p>POST /api/v1/public?command=spotWealthTransfer</p>
+</blockquote>
+
+<p><code>curl &quot;https://api.coinw.tv/api/v1/public?command=spotWealthTransfer&quot;</code></p>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数名称</th>
+<th>数据类型</th>
+<th>必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accountType</td>
+<td>Int</td>
+<td>true</td>
+<td>SPOT/WEALTH</td>
+</tr>
+<tr>
+<td>targetAccountType</td>
+<td>string</td>
+<td>true</td>
+<td>SPOT/WEALTH</td>
+</tr>
+<tr>
+<td>bizType</td>
+<td>string</td>
+<td>true</td>
+<td>SPOT_TO_WEALTH /WEALTH_TO_SPOT</td>
+</tr>
+<tr>
+<td>coinCode</td>
+<td>string</td>
+<td>true</td>
+<td>如：USDT</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+                </span><span class="p">{</span><span class="w">
+                                      </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+                                      </span><span class="nl">"data"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+                                      </span><span class="nl">"msg"</span><span class="p">:</span><span class="s2">"SUCCESS"</span><span class="w">
+                                  </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='api-5'>交易API</h1>
 <p>用于快速进行交易</p>
 <h2 id='d176251a8a'><span>未完成订单列表</span></h2>
 <p>返回指定交易对的未完成订单列表</p>
@@ -1127,7 +1193,7 @@
 <p>POST /api/v1/private?command=returnOpenOrders</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=returnOpenOrders&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=returnOpenOrders&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1241,7 +1307,7 @@
 <p>POST /api/v1/private?command=returnOrderTrades</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=returnOrderTrades&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=returnOrderTrades&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1348,7 +1414,7 @@
 <p>POST /api/v1/private?command=returnOrderStatus</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=returnOrderStatus&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=returnOrderStatus&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1424,7 +1490,7 @@
 <p>POST /api/v1/private?command=returnUTradeHistory</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=returnUTradeHistory&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=returnUTradeHistory&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1566,7 +1632,7 @@
 <p>POST /api/v1/private?command=getUserTrades</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=getUserTrades&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=getUserTrades&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1704,7 +1770,7 @@
 <p>POST /api/v1/private?command=doTrade</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=doTrade&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=doTrade&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1786,7 +1852,7 @@
 <p>POST /api/v1/private?command=cancelOrder</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=cancelOrder&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=cancelOrder&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1839,7 +1905,7 @@
 <p>POST /api/v1/private?command=cancelAllOrder</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=cancelAllOrder&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=cancelAllOrder&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1884,7 +1950,7 @@
                 </span><span class="p">}</span><span class="w">
 
 
-</span></code></pre></div><h1 id='api-5'>提现API</h1>
+</span></code></pre></div><h1 id='api-6'>提现API</h1>
 <p>用于快速进行虚拟币提现</p>
 <h2 id='be9396ac4f'><span>可用余额</span></h2>
 <p>返回币币账户的可用余额</p>
@@ -1895,7 +1961,7 @@
 <p>POST /api/v1/private?command=returnBalances</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=returnBalances&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=returnBalances&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1935,7 +2001,7 @@
 <p>POST /api/v1/private?command=returnCompleteBalances</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=returnCompleteBalances&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=returnCompleteBalances&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -1998,7 +2064,7 @@
 <p>POST /api/v1/private?command=returnDepositsWithdrawals</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=returnDepositsWithdrawa</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=returnDepositsWithdrawa</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -2096,7 +2162,7 @@
 <p>POST /api/v1/private?command=doWithdraw</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=doWithdraw&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=doWithdraw&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -2151,7 +2217,7 @@
 <p>POST /api/v1/private?command=cancelWithdraw</p>
 </blockquote>
 
-<p><code>curl &quot;https://api.coinw.uk/api/v1/private?command=cancelWithdraw&quot;</code></p>
+<p><code>curl &quot;https://api.coinw.tv/api/v1/private?command=cancelWithdraw&quot;</code></p>
 
 <p><strong>请求参数</strong></p>
 
@@ -2373,7 +2439,7 @@
             </span><span class="nl">"volValue"</span><span class="p">:</span><span class="w"> </span><span class="s2">"306.280240"</span><span class="w">
         </span><span class="p">}</span><span class="w">
 
-</span></code></pre></div><h1 id='cf68bca02a'>错误代码</h1><h2 id='api-6'><span>API接口调用错误代码描述</span></h2>
+</span></code></pre></div><h1 id='cf68bca02a'>错误代码</h1><h2 id='api-7'><span>API接口调用错误代码描述</span></h2>
 <table><thead>
 <tr>
 <th>错误代码</th>
