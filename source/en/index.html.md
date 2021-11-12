@@ -84,7 +84,7 @@ Retrieve summary information for each currency pair listed on the exchange
 
 > GET /api/v1/public?command=returnTicker
 
-`curl "http://api.coinw.uk/api/v1/public?command=returnTicker"`
+`curl "http://api.coinw.tv/api/v1/public?command=returnTicker"`
 
 Request Parameters
 
@@ -136,7 +136,7 @@ Back to currency related info
 
 > GET/api/v1/public?command=returnCurrencies
 
-`curl "https://api.coinw.uk/api/v1/public?command=returnCurrencies"`
+`curl "https://api.coinw.tv/api/v1/public?command=returnCurrencies"`
 
 Request Parameters
 
@@ -207,7 +207,7 @@ Back to symbol related info
 
 > GET/api/v1/public?command=returnSymbol
 
-`curl "https://api.coinw.uk/api/v1/public?command=returnSymbol"`
+`curl "https://api.coinw.tv/api/v1/public?command=returnSymbol"`
 
 Request Parameters
 
@@ -266,7 +266,7 @@ Back to the trading pair depth info
 > GET /api/v1/public?command=returnOrderBook
 
 `curl
-"https://api.coinw.uk/api/v1/public?command=returnOrderBook&symbol=BTC_CNYT&size=20"`
+"https://api.coinw.tv/api/v1/public?command=returnOrderBook&symbol=BTC_CNYT&size=20"`
 
 Request Parameters
 
@@ -313,7 +313,7 @@ Back to the trading pair's last 200 trades
 
 > GET /api/v1/public?command=returnTradeHistory
 
-`curl "https://api.coinw.uk/api/v1/public?command=returnTradeHistory&symbol=CWT_CNYT&start=1579238517000&end=1581916917660"`
+`curl "https://api.coinw.tv/api/v1/public?command=returnTradeHistory&symbol=CWT_CNYT&start=1579238517000&end=1581916917660"`
 
 Request Parameters
 
@@ -371,7 +371,7 @@ Back to K-line data
 
 >GET /api/v1/public?command=returnChartData
 
-`curl "https://api.coinw.uk/api/v1/public?currencyPair=CWT_CNYT&command=returnChartData&period=1800&start=1580992380&end=1582288440"`
+`curl "https://api.coinw.tv/api/v1/public?currencyPair=CWT_CNYT&command=returnChartData&period=1800&start=1580992380&end=1582288440"`
 
 Request Parameters
 
@@ -436,7 +436,7 @@ Get trading pair 24H volume
 
 >GET /api/v1/public?command=return24hVolume
 
-`curl "https://api.coinw.uk/api/v1/public?command=return24hVolume"`
+`curl "https://api.coinw.tv/api/v1/public?command=return24hVolume"`
 
 Request Parameters
 
@@ -480,6 +480,42 @@ Response Content
           "msg":"SUCCESS"
         }
 ```      
+
+
+# Transfer API
+
+## <span>Transfer</span>
+ 
+between spot and wealth
+
+**HTTP 请求**
+ 
+> POST /api/v1/public?command=spotWealthTransfer
+ 
+`curl "https://api.coinw.tv/api/v1/public?command=spotWealthTransfer"`
+ 
+**请求参数**
+ 
+Field| 	Data Type| 	must	| Description
+-------------- | -------------- | -------------- | -------------- 
+accountType	| Int	| true 		| SPOT/WEALTH
+targetAccountType	| string| 	true	|  SPOT/WEALTH
+bizType	| string| 	true	|  SPOT_TO_WEALTH /WEALTH_TO_SPOT
+coinCode	| string	| true 		| such as：USDT
+amount | string| 	true	|  
+
+
+```json
+ 
+                {
+                                      "code":"200",
+                                      "data":true,
+                                      "msg":"SUCCESS"
+                                  }
+```        
+
+
+
 # Trade API
 
 For fast trading
@@ -492,7 +528,7 @@ Back to the trading pair's pending order list
 
 >POST /api/v1/private?command=returnOpenOrders
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnOpenOrders"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnOpenOrders"`
 
 Request Parameters
 
@@ -544,7 +580,7 @@ Back to the order detail information
 
 >POST /api/v1/private?command=returnOrderTrades
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnOrderTrades"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnOrderTrades"`
 
 Request Parameters
 
@@ -596,7 +632,7 @@ Back to the order satus information
 
 >POST /api/v1/private?command=returnOrderStatus
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnOrderStatus"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnOrderStatus"`
 
 Request Parameters
 
@@ -636,7 +672,7 @@ Back to the historical orders, 1000 at most
 
 >POST /api/v1/private?command=returnUTradeHistory
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnUTradeHistory"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnUTradeHistory"`
 
 Request Parameters
 
@@ -713,7 +749,7 @@ Back to the  match results of past, 100 at most
 
 > POST /api/v1/private?command=getUserTrades
 
-`curl "https://api.coinw.uk/api/v1/private?command=getUserTrades"`
+`curl "https://api.coinw.tv/api/v1/private?command=getUserTrades"`
 
 **请求参数**
 
@@ -773,7 +809,7 @@ Order
 
 >POST /api/v1/private?command=doTrade
 
-`curl "https://api.coinw.uk/api/v1/private?command=doTrade"`
+`curl "https://api.coinw.tv/api/v1/private?command=doTrade"`
 
 Request Parameters
 
@@ -811,7 +847,7 @@ Cancel the order
 
 >POST /api/v1/private?command=cancelOrder
 
-`curl "https://api.coinw.uk/api/v1/private?command=cancelOrder"`
+`curl "https://api.coinw.tv/api/v1/private?command=cancelOrder"`
 
 Request Parameters
 
@@ -843,7 +879,7 @@ Cancel all order
 
 >POST /api/v1/private?command=cancelAllOrder
 
-`curl "https://api.coinw.uk/api/v1/private?command=cancelAllOrder"`
+`curl "https://api.coinw.tv/api/v1/private?command=cancelAllOrder"`
 
 Request Parameters
 
@@ -880,7 +916,7 @@ Return the available balance of the asset account
 
 >POST /api/v1/private?command=returnBalances
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnBalances"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnBalances"`
 
 Request Parameters
 
@@ -923,7 +959,7 @@ Return all balances of the asset account
 
 >POST /api/v1/private?command=returnCompleteBalances
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnCompleteBalances"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnCompleteBalances"`
 
 Request Parameters
 
@@ -976,7 +1012,7 @@ Get d&w history
 
 >POST /api/v1/private?command=returnDepositsWithdrawals
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnDepositsWithdrawa`
+`curl "https://api.coinw.tv/api/v1/private?command=returnDepositsWithdrawa`
 
 Request Parameters
 
@@ -1031,7 +1067,7 @@ Withdraw
 
 >POST /api/v1/private?command=doWithdraw
 
-`curl "https://api.coinw.uk/api/v1/private?command=doWithdraw"`
+`curl "https://api.coinw.tv/api/v1/private?command=doWithdraw"`
 
 Request Parameters
 
@@ -1062,7 +1098,7 @@ Cancel withdrawal
 
 >POST /api/v1/private?command=cancelWithdraw
 
-`curl "https://api.coinw.uk/api/v1/private?command=cancelWithdraw"`
+`curl "https://api.coinw.tv/api/v1/private?command=cancelWithdraw"`
 
 Request Parameters
 

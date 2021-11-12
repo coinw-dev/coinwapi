@@ -76,7 +76,7 @@ code_clipboard: true
 
 > GET /api/v1/public?command=returnTicker
 
-`curl "https://api.coinw.uk/api/v1/public?command=returnTicker"`
+`curl "https://api.coinw.tv/api/v1/public?command=returnTicker"`
 
 **请求参数**
 
@@ -122,7 +122,7 @@ baseVolume	|string	|基础币种24小时交易量|
 
 > GET/api/v1/public?command=returnCurrencies
 
-`curl "https://api.coinw.uk/api/v1/public?command=returnCurrencies"`
+`curl "https://api.coinw.tv/api/v1/public?command=returnCurrencies"`
 
 **请求参数**
 
@@ -192,7 +192,7 @@ withDraw	|string	|是否能够提现，0不能1可以
 
 > GET/api/v1/public?command=returnSymbol
 
-`curl "https://api.coinw.uk/api/v1/public?command=returnSymbol"`
+`curl "https://api.coinw.tv/api/v1/public?command=returnSymbol"`
 
 **请求参数**
 
@@ -237,6 +237,9 @@ withDraw	|string	|是否能够提现，0不能1可以
 ]
 }
 ```
+
+
+
 # 行情API
 
 获取最新市场行情数据
@@ -250,7 +253,7 @@ withDraw	|string	|是否能够提现，0不能1可以
 
 > GET /api/v1/public?command=returnOrderBook
 
-`curl "https://api.coinw.uk/api/v1/public?command=returnOrderBook&symbol=BTC_CNYT&size=20"`
+`curl "https://api.coinw.tv/api/v1/public?command=returnOrderBook&symbol=BTC_CNYT&size=20"`
 
 **请求参数**
 
@@ -298,7 +301,7 @@ bids	|string	|卖方深度
 
 > GET /api/v1/public?command=returnTradeHistory
 
-`curl "https://api.coinw.uk/api/v1/public?command=returnTradeHistory&symbol=CWT_CNYT&start=1579238517000&end=1581916917660"`
+`curl "https://api.coinw.tv/api/v1/public?command=returnTradeHistory&symbol=CWT_CNYT&start=1579238517000&end=1581916917660"`
 
 **请求参数**
 
@@ -352,7 +355,7 @@ time|	string|	交易时间
 
 > GET /api/v1/public?command=returnChartData
 
-`curl "https://api.coinw.uk/api/v1/public?currencyPair=CWT_CNYT&command=returnChartData&period=1800&start=1580992380&end=1582288440"`
+`curl "https://api.coinw.tv/api/v1/public?currencyPair=CWT_CNYT&command=returnChartData&period=1800&start=1580992380&end=1582288440"`
 
 **请求参数**
 
@@ -419,7 +422,7 @@ volume	| string	| 成交量
 
 > GET /api/v1/public?command=return24hVolume
 
-`curl "https://api.coinw.uk/api/v1/public?command=return24hVolume"`
+`curl "https://api.coinw.tv/api/v1/public?command=return24hVolume"`
 
 **请求参数**
 
@@ -464,6 +467,39 @@ volume	| string	| 成交量
         }
   ```
 
+# 划转API
+
+## <span>划转</span>
+ 
+现货、资金账户划转
+
+**HTTP 请求**
+ 
+> POST /api/v1/public?command=spotWealthTransfer
+ 
+`curl "https://api.coinw.tv/api/v1/public?command=spotWealthTransfer"`
+ 
+**请求参数**
+ 
+参数名称| 	数据类型| 	必须	| 描述
+-------------- | -------------- | -------------- | -------------- 
+accountType	| Int	| true 		| SPOT/WEALTH
+targetAccountType	| string| 	true	|  SPOT/WEALTH
+bizType	| string| 	true	|  SPOT_TO_WEALTH /WEALTH_TO_SPOT
+coinCode	| string	| true 		| 如：USDT
+amount | string| 	true	|  
+
+
+```json
+ 
+                {
+                                      "code":"200",
+                                      "data":true,
+                                      "msg":"SUCCESS"
+                                  }
+```        
+ 
+
 # 交易API
 
 用于快速进行交易
@@ -477,7 +513,7 @@ volume	| string	| 成交量
 
 > POST /api/v1/private?command=returnOpenOrders
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnOpenOrders"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnOpenOrders"`
 
 **请求参数**
 
@@ -530,7 +566,7 @@ status	 |string	 |状态:1-未完成、2-部分成交、3-完全成交、4-用�
 
 > POST /api/v1/private?command=returnOrderTrades
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnOrderTrades"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnOrderTrades"`
 
 **请求参数**
 
@@ -582,7 +618,7 @@ status	|string|	状态:1-未完成、2-部分成交、3-完全成交、4-用户�
 
 > POST /api/v1/private?command=returnOrderStatus
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnOrderStatus"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnOrderStatus"`
 
 **请求参数**
 
@@ -622,7 +658,7 @@ status	|string	|状态:1-未完成、2-部分成交、3-完全成交、4-用户�
 
 > POST /api/v1/private?command=returnUTradeHistory
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnUTradeHistory"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnUTradeHistory"`
 
 **请求参数**
 
@@ -698,7 +734,7 @@ status	 | string	 | 状态:1-未完成、2-部分成交、3-完全成交、4-用
 
 > POST /api/v1/private?command=getUserTrades
 
-`curl "https://api.coinw.uk/api/v1/private?command=getUserTrades"`
+`curl "https://api.coinw.tv/api/v1/private?command=getUserTrades"`
 
 **请求参数**
 
@@ -757,7 +793,7 @@ status	 | string	 | 状态:1-未完成、2-部分成交、3-完全成交、4-用
 
 > POST /api/v1/private?command=doTrade
 
-`curl "https://api.coinw.uk/api/v1/private?command=doTrade"`
+`curl "https://api.coinw.tv/api/v1/private?command=doTrade"`
 
 **请求参数**
 
@@ -796,7 +832,7 @@ orderNumber	|string	|订单号
 
 > POST /api/v1/private?command=cancelOrder
 
-`curl "https://api.coinw.uk/api/v1/private?command=cancelOrder"`
+`curl "https://api.coinw.tv/api/v1/private?command=cancelOrder"`
 
 **请求参数**
 
@@ -831,7 +867,7 @@ clientOrderId	| string| 	订单号
 
 > POST /api/v1/private?command=cancelAllOrder
 
-`curl "https://api.coinw.uk/api/v1/private?command=cancelAllOrder"`
+`curl "https://api.coinw.tv/api/v1/private?command=cancelAllOrder"`
 
 **请求参数**
 
@@ -869,7 +905,7 @@ orderNumbers	|Array	|订单号列表
 
 > POST /api/v1/private?command=returnBalances
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnBalances"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnBalances"`
 
 **请求参数**
 
@@ -912,7 +948,7 @@ orderNumbers	|Array	|订单号列表
 
 > POST /api/v1/private?command=returnCompleteBalances
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnCompleteBalances"`
+`curl "https://api.coinw.tv/api/v1/private?command=returnCompleteBalances"`
 
 **请求参数**
 
@@ -964,7 +1000,7 @@ onOrders |	string	 |冻结余额
 
 > POST /api/v1/private?command=returnDepositsWithdrawals
 
-`curl "https://api.coinw.uk/api/v1/private?command=returnDepositsWithdrawa`
+`curl "https://api.coinw.tv/api/v1/private?command=returnDepositsWithdrawa`
 
 **请求参数**
 
@@ -1018,7 +1054,7 @@ status	 |string	 |状态１:等待提现 3.提现成功 4.用户撤销
 
 > POST /api/v1/private?command=doWithdraw
 
-`curl "https://api.coinw.uk/api/v1/private?command=doWithdraw"`
+`curl "https://api.coinw.tv/api/v1/private?command=doWithdraw"`
 
 **请求参数**
 
@@ -1050,7 +1086,7 @@ address	 |string	 |true	 |	提币地址
 
 > POST /api/v1/private?command=cancelWithdraw
 
-`curl "https://api.coinw.uk/api/v1/private?command=cancelWithdraw"`
+`curl "https://api.coinw.tv/api/v1/private?command=cancelWithdraw"`
 
 **请求参数**
 
